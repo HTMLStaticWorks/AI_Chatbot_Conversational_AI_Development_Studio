@@ -202,19 +202,113 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
 /* Hero Section */
 .hero-section {
   position: relative;
-  padding: 150px 0 100px;
+  padding: 2rem 0 2rem;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
 }
 
+/* Hero text visibility in both modes */
+.hero-section h1,
+.hero-section h2,
+.hero-section p,
+.hero-section .lead {
+  text-shadow: 0 2px 20px rgba(0,0,0,0.6), 0 1px 6px rgba(0,0,0,0.5);
+}
+
+/* Bold, readable hero paragraphs */
+.hero-section p,
+.hero-section .lead {
+  font-weight: 500;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  letter-spacing: 0.01em;
+  opacity: 1;
+}
+
+[data-theme="light"] .hero-section h1,
+[data-theme="light"] .hero-section h2 {
+  text-shadow: 0 2px 16px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2);
+  color: #1a1a2e;
+}
+
+[data-theme="light"] .hero-section p,
+[data-theme="light"] .hero-section .lead {
+  text-shadow: 0 1px 8px rgba(255,255,255,0.8), 0 1px 3px rgba(0,0,0,0.15);
+  color: #2d2d2d;
+  font-weight: 600;
+}
+
+/* Hero background with image overlay */
 .hero-bg {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  z-index: -1;
-  background: radial-gradient(circle at top right, rgba(244, 63, 94, 0.15), transparent 40%),
-              radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.15), transparent 40%);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Dark mode overlay on hero image */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.58);
+}
+
+/* Light mode overlay - lighter tint */
+[data-theme="light"] .hero-bg::after {
+  background: rgba(252, 248, 248, 0.55);
+}
+
+/* Ensure text sits above the overlay */
+.hero-section .container.position-relative {
+  position: relative;
+  z-index: 2;
+}
+
+/* Unique hero backgrounds per page */
+.hero-bg--home {
+  background-image:
+    radial-gradient(circle at top right, rgba(244, 63, 94, 0.25), transparent 45%),
+    radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.20), transparent 45%),
+    url('../images/hero_home.png');
+}
+
+.hero-bg--about {
+  background-image:
+    radial-gradient(circle at top left, rgba(249, 115, 22, 0.22), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(244, 63, 94, 0.18), transparent 45%),
+    url('../images/hero_about.png');
+}
+
+.hero-bg--services {
+  background-image:
+    radial-gradient(circle at center top, rgba(251, 191, 36, 0.20), transparent 50%),
+    radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.18), transparent 45%),
+    url('../images/hero_services.png');
+}
+
+.hero-bg--blog {
+  background-image:
+    radial-gradient(circle at top right, rgba(244, 63, 94, 0.20), transparent 45%),
+    radial-gradient(circle at bottom left, rgba(251, 191, 36, 0.16), transparent 45%),
+    url('../images/hero_blog.png');
+}
+
+.hero-bg--pricing {
+  background-image:
+    radial-gradient(circle at top center, rgba(251, 191, 36, 0.22), transparent 50%),
+    radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.18), transparent 45%),
+    url('../images/hero_pricing.png');
+}
+
+.hero-bg--contact {
+  background-image:
+    radial-gradient(circle at top left, rgba(244, 63, 94, 0.20), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.18), transparent 45%),
+    url('../images/hero_contact.png');
 }
 
 /* Service Cards */
@@ -307,4 +401,27 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
 .theme-toggle:hover {
   color: var(--primary);
   transform: rotate(15deg);
+}
+
+/* Trusted Badges */
+.trusted-badge {
+  padding: 0.75rem 1.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+.trusted-badge:hover {
+  background-color: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(249, 115, 22, 0.2);
 }

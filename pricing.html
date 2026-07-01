@@ -18,6 +18,9 @@
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
+        document.documentElement.setAttribute('data-bs-theme', savedTheme);
+    } else {
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
     }
     const savedDir = localStorage.getItem('dir');
     if (savedDir) {
@@ -53,7 +56,7 @@
           <button class="theme-toggle me-2" aria-label="Toggle RTL" title="Toggle RTL" onclick="let dirTarget = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; document.documentElement.setAttribute('dir', dirTarget); localStorage.setItem('dir', dirTarget);">
             <i class="bi bi-arrow-left-right"></i>
           </button>
-          <button class="theme-toggle" aria-label="Toggle Theme" onclick="let themeTarget = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', themeTarget); localStorage.setItem('theme', themeTarget);">
+          <button class="theme-toggle" aria-label="Toggle Theme" onclick="let themeTarget = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', themeTarget); document.documentElement.setAttribute('data-bs-theme', themeTarget); localStorage.setItem('theme', themeTarget);">
             <i class="bi bi-sun"></i>
           </button>
           <a href="login.html" class="btn btn-outline-glass">Login</a>
@@ -86,7 +89,7 @@
         <button class="theme-toggle" aria-label="Toggle RTL" onclick="let mobileDir = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; document.documentElement.setAttribute('dir', mobileDir); localStorage.setItem('dir', mobileDir);">
           <i class="bi bi-arrow-left-right"></i>
         </button>
-        <button class="theme-toggle" aria-label="Toggle Theme" onclick="let mobileTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', mobileTheme); localStorage.setItem('theme', mobileTheme);">
+        <button class="theme-toggle" aria-label="Toggle Theme" onclick="let mobileTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', mobileTheme); document.documentElement.setAttribute('data-bs-theme', mobileTheme); localStorage.setItem('theme', mobileTheme);">
           <i class="bi bi-sun"></i>
         </button>
       </div>
@@ -97,8 +100,9 @@
   </div>
 
 <!-- Hero Section -->
-  <section class="hero-section  py-5">
-    <div class="container text-center">
+  <section class="hero-section py-5 position-relative">
+    <div class="hero-bg hero-bg--pricing"></div>
+    <div class="container text-center position-relative z-1">
       <h1 class="mb-4">Transparent Pricing for Measurable ROI</h1>
       <p class="lead mb-4">Pay only for the conversations that deliver value. No hidden fees.</p>
     </div>
@@ -106,74 +110,167 @@
 
   <!-- Pricing Cards Section -->
   <section class="py-5">
-    <div class="container">
-      <div class="row gy-4 justify-content-center">
+    <div class="container text-center">
+      <h2 class="mb-5 text-primary">Choose Your Plan</h2>
+      <div class="row gy-4 justify-content-center text-start">
         <!-- Starter Plan (Secondary) -->
         <div class="col-lg-4 col-md-6">
-          <div class="card card-custom shadow-sm h-100">
-            <h3 class="mb-3">Starter</h3>
+          <div class="card glass-panel shadow-lg h-100 d-flex flex-column p-4 hover-lift border-0" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+            <h3 class="mb-3 mt-2 pt-1">Starter</h3>
             <h2 class="text-primary mb-4">$0.10<span class="fs-6 text-muted">/conversation</span></h2>
-            <ul class="list-unstyled text-start mb-4">
-              <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> Up to 5,000 conversations/mo</li>
-              <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> Standard Support</li>
-              <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> Basic Knowledge Base</li>
+            <ul class="list-unstyled text-start mb-4 flex-grow-1">
+              <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Up to 5,000 conversations/mo</li>
+              <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Standard Support</li>
+              <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Basic Knowledge Base</li>
             </ul>
-            <a href="register.html" class="btn btn-secondary-custom w-100 mt-auto">Get Started</a>
+            <a href="register.html" class="btn btn-outline-primary w-100 mt-auto">Get Started</a>
           </div>
         </div>
         
         <!-- Professional Plan (Primary - Middle) -->
         <div class="col-lg-4 col-md-6">
-          <div class="card card-custom shadow border-primary h-100 position-relative">
+          <div class="card glass-panel shadow-lg border-primary border h-100 position-relative d-flex flex-column p-4 hover-lift" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
             <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary px-3 py-2">Most Popular</span>
-            <h3 class="mb-3 mt-2">Professional</h3>
+            <h3 class="mb-3 mt-2 pt-1">Professional</h3>
             <h2 class="text-primary mb-4">$0.08<span class="fs-6 text-muted">/conversation</span></h2>
-            <ul class="list-unstyled text-start mb-4">
-              <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> Up to 50,000 conversations/mo</li>
-              <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> Priority Support</li>
-              <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> Advanced AI Integrations</li>
-              <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> Custom Deflection Analytics</li>
+            <ul class="list-unstyled text-start mb-4 flex-grow-1">
+              <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Up to 50,000 conversations/mo</li>
+              <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Priority Support</li>
+              <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Advanced AI Integrations</li>
+              <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Custom Deflection Analytics</li>
             </ul>
-            <a href="register.html" class="btn btn-primary-custom w-100 mt-auto">Choose Professional</a>
+            <a href="register.html" class="btn btn-primary w-100 mt-auto">Choose Professional</a>
           </div>
         </div>
 
         <!-- Enterprise Plan (Secondary) -->
         <div class="col-lg-4 col-md-6">
-          <div class="card card-custom shadow-sm h-100">
-            <h3 class="mb-3">Enterprise</h3>
+          <div class="card glass-panel shadow-lg h-100 d-flex flex-column p-4 hover-lift border-0" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+            <h3 class="mb-3 mt-2 pt-1">Enterprise</h3>
             <h2 class="text-primary mb-4">$0.05<span class="fs-6 text-muted">/conversation</span></h2>
-            <ul class="list-unstyled text-start mb-4">
-              <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> Unlimited conversations</li>
-              <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> 24/7 Dedicated Support</li>
-              <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> Dedicated Account Manager</li>
+            <ul class="list-unstyled text-start mb-4 flex-grow-1">
+              <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Unlimited conversations</li>
+              <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> 24/7 Dedicated Support</li>
+              <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Dedicated Account Manager</li>
             </ul>
-            <a href="contact.html" class="btn btn-secondary-custom w-100 mt-auto">Contact Sales</a>
+            <a href="contact.html" class="btn btn-outline-primary w-100 mt-auto">Contact Sales</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section class="py-5 ">
+  <!-- Trusted By Section -->
+  <section class="py-5 bg-darker text-center border-top border-bottom border-secondary border-opacity-25">
     <div class="container">
-      <h2 class="text-center mb-5">Frequently Asked Questions</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <div class="accordion" id="pricingFAQ">
-            <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">What counts as a conversation?</button></h2>
-              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#pricingFAQ">
-                <div class="accordion-body">A conversation is defined as a series of messages between a user and the chatbot within a 24-hour window.</div>
-              </div>
+      <p class="text-muted text-uppercase fw-bold mb-4">Trusted by innovative teams worldwide</p>
+      <div class="d-flex flex-wrap justify-content-center align-items-center gap-5 opacity-50">
+        <h4 class="m-0"><i class="bi bi-apple me-2"></i>TechCorp</h4>
+        <h4 class="m-0"><i class="bi bi-microsoft me-2"></i>Innovate LLC</h4>
+        <h4 class="m-0"><i class="bi bi-spotify me-2"></i>Global Media</h4>
+        <h4 class="m-0"><i class="bi bi-amazon me-2"></i>Retail Giant</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compare Plans Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="text-primary">Compare All Features</h2>
+        <p class="text-muted">A detailed breakdown to help you choose the right fit.</p>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered text-center align-middle">
+          <thead>
+            <tr>
+              <th class="text-start">Features</th>
+              <th>Starter</th>
+              <th>Professional</th>
+              <th>Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-start">Conversations/mo</td>
+              <td>5,000</td>
+              <td>50,000</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <td class="text-start">Custom Data Sources</td>
+              <td>3</td>
+              <td>15</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <td class="text-start">Multi-Language</td>
+              <td><i class="bi bi-x-circle text-muted"></i></td>
+              <td><i class="bi bi-check-circle-fill text-success"></i></td>
+              <td><i class="bi bi-check-circle-fill text-success"></i></td>
+            </tr>
+            <tr>
+              <td class="text-start">Human Handoff</td>
+              <td><i class="bi bi-x-circle text-muted"></i></td>
+              <td><i class="bi bi-check-circle-fill text-success"></i></td>
+              <td><i class="bi bi-check-circle-fill text-success"></i></td>
+            </tr>
+            <tr>
+              <td class="text-start">SLA Guarantee</td>
+              <td><i class="bi bi-x-circle text-muted"></i></td>
+              <td>99.9%</td>
+              <td>99.99%</td>
+            </tr>
+            <tr>
+              <td class="text-start">Support Level</td>
+              <td>Standard Email</td>
+              <td>Priority</td>
+              <td>24/7 Dedicated</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Security Section -->
+  <section class="py-5 bg-darker position-relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="position-absolute top-50 start-0 translate-middle-y" style="width: 300px; height: 300px; background: radial-gradient(circle, var(--bs-primary) 0%, transparent 70%); opacity: 0.1; filter: blur(40px);"></div>
+    <div class="position-absolute top-50 end-0 translate-middle-y" style="width: 300px; height: 300px; background: radial-gradient(circle, var(--bs-info) 0%, transparent 70%); opacity: 0.1; filter: blur(40px);"></div>
+
+    <div class="container position-relative z-1">
+      <div class="text-center mb-5">
+        <span class="badge bg-primary bg-opacity-25 text-primary border border-primary border-opacity-50 px-3 py-2 rounded-pill mb-3">Enterprise Grade</span>
+        <h2>Security & Compliance as Standard</h2>
+        <p class="text-muted max-w-md mx-auto">Your data's security is our top priority. All plans include state-of-the-art protection.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-6">
+          <div class="card glass-panel border-0 h-100 p-4 text-center" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div class="bg-primary bg-opacity-10 text-primary mx-auto mb-4 rounded-circle d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+              <i class="bi bi-shield-lock display-5"></i>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Can I cancel anytime?</button></h2>
-              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
-                <div class="accordion-body">Yes, our transparent pricing means there are no long-term contracts. You can scale down or cancel at any time.</div>
-              </div>
+            <h4 class="mb-3">End-to-End Encryption</h4>
+            <p class="text-muted mb-0">All conversations and data are encrypted in transit and at rest using AES-256 standards.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card glass-panel border-0 h-100 p-4 text-center" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div class="bg-info bg-opacity-10 text-info mx-auto mb-4 rounded-circle d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+              <i class="bi bi-bank display-5"></i>
             </div>
+            <h4 class="mb-3">SOC 2 Type II Compliant</h4>
+            <p class="text-muted mb-0">Rigorously audited infrastructure ensuring the highest levels of security and availability.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card glass-panel border-0 h-100 p-4 text-center" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div class="bg-success bg-opacity-10 text-success mx-auto mb-4 rounded-circle d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+              <i class="bi bi-globe display-5"></i>
+            </div>
+            <h4 class="mb-3">Data Residency</h4>
+            <p class="text-muted mb-0">Choose where your data lives. We offer secure hosting options across North America, Europe, and Asia.</p>
           </div>
         </div>
       </div>

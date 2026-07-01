@@ -94,15 +94,168 @@
   </div>
 
 <!-- Hero Section -->
-  <section class="hero-section bg-dark text-white py-5" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);">
-    <div class="container text-center">
-      <h1 class="mb-4 text-white">The Ultimate Conversational AI Platform</h1>
-      <p class="lead mb-4 text-white-50">Build, deploy, and scale intelligent chatbots with ease.</p>
-      <a href="register.html" class="btn btn-light btn-lg text-primary fw-bold px-5">Get Started Free</a>
+  <section class="hero-section position-relative py-5">
+    <div class="hero-bg" style="background-image: radial-gradient(circle at top right, rgba(249,115,22,0.30), transparent 50%), radial-gradient(circle at bottom left, rgba(244,63,94,0.25), transparent 50%), url('assets/images/hero_home_2.png'); background-size: cover; background-position: center;"></div>
+    <div class="container text-center position-relative z-1">
+      <h1 class="mb-4">The Ultimate Conversational AI Platform</h1>
+      <p class="lead mb-4">Build, deploy, and scale intelligent chatbots with ease.</p>
+      <a href="register.html" class="btn btn-primary-gradient btn-lg px-5">Get Started Free</a>
     </div>
   </section>
 
-    <!-- Footer -->
+  <!-- Trusted By Section -->
+  <section class="py-4 border-bottom border-secondary border-opacity-25" style="background-color: var(--bg-color-alt);">
+    <div class="container text-center">
+      <p class="text-muted mb-4 fw-medium text-uppercase tracking-wide small">Trusted by innovative teams worldwide</p>
+      <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
+        <div class="trusted-badge">ACME Corp</div>
+        <div class="trusted-badge">GlobalTech</div>
+        <div class="trusted-badge">Nexus Industries</div>
+        <div class="trusted-badge">Starlight</div>
+        <div class="trusted-badge">OmniSystems</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Benefits Section -->
+  <section class="py-5 my-5">
+    <div class="container">
+      <div class="row align-items-center mb-5 pb-4">
+        <div class="col-lg-6 mb-4 mb-lg-0 pe-lg-5">
+          <h2 class="mb-4">Advanced Analytics <span class="text-gradient">Engine</span></h2>
+          <p class="lead mb-4">Track every conversation, measure user sentiment in real-time, and identify bottlenecks in your support flow before they escalate.</p>
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+            <li class="d-flex gap-3"><i class="bi bi-check-circle-fill text-success fs-5"></i><span>Real-time sentiment tracking and scoring</span></li>
+            <li class="d-flex gap-3"><i class="bi bi-check-circle-fill text-success fs-5"></i><span>Detailed conversation transcripts & exports</span></li>
+            <li class="d-flex gap-3"><i class="bi bi-check-circle-fill text-success fs-5"></i><span>Customizable dashboards with ROI metrics</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="glass-panel p-0 overflow-hidden border-0 shadow" style="height: 350px; border-radius: var(--border-radius-lg, 1rem);">
+            <img src="assets/images/data_connect.png" alt="Analytics Engine" class="w-100 h-100 object-fit-cover">
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center flex-row-reverse">
+        <div class="col-lg-6 mb-4 mb-lg-0 ps-lg-5">
+          <h2 class="mb-4">Human-like <span class="text-gradient">Conversations</span></h2>
+          <p class="lead mb-4">Our proprietary NLP models ensure that your chatbot understands context, nuance, and intent, providing a seamless experience.</p>
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+            <li class="d-flex gap-3"><i class="bi bi-check-circle-fill text-success fs-5"></i><span>Context-aware multi-turn conversations</span></li>
+            <li class="d-flex gap-3"><i class="bi bi-check-circle-fill text-success fs-5"></i><span>Seamless human handoff protocols</span></li>
+            <li class="d-flex gap-3"><i class="bi bi-check-circle-fill text-success fs-5"></i><span>Multi-language support (50+ languages)</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="glass-panel p-0 overflow-hidden border-0 shadow" style="height: 350px; border-radius: var(--border-radius-lg, 1rem);">
+            <img src="assets/images/test_refine.png" alt="Human-like Conversations" class="w-100 h-100 object-fit-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration Showcase Section -->
+  <section class="py-5 my-5 bg-secondary bg-opacity-10">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2>Connect Everywhere</h2>
+        <p class="mx-auto" style="max-width: 600px;">Deploy your intelligent agents across all major communication channels with a single click.</p>
+      </div>
+      <div class="row g-4 justify-content-center text-center">
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="glass-panel p-4 d-flex flex-column align-items-center gap-2">
+            <i class="bi bi-whatsapp fs-1 text-success"></i>
+            <span class="fw-medium small">WhatsApp</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="glass-panel p-4 d-flex flex-column align-items-center gap-2">
+            <i class="bi bi-slack fs-1 text-warning"></i>
+            <span class="fw-medium small">Slack</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="glass-panel p-4 d-flex flex-column align-items-center gap-2">
+            <i class="bi bi-microsoft-teams fs-1 text-primary"></i>
+            <span class="fw-medium small">MS Teams</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="glass-panel p-4 d-flex flex-column align-items-center gap-2">
+            <i class="bi bi-facebook fs-1 text-primary"></i>
+            <span class="fw-medium small">Messenger</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="glass-panel p-4 d-flex flex-column align-items-center gap-2">
+            <i class="bi bi-browser-chrome fs-1 text-info"></i>
+            <span class="fw-medium small">Web Widget</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry Use Cases Section -->
+  <section class="py-5 my-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2>Built for <span class="text-gradient">Every Industry</span></h2>
+        <p class="mx-auto" style="max-width: 600px;">Tailor-made solutions that adapt to your specific business model.</p>
+      </div>
+      <div class="row g-4">
+        <!-- E-commerce -->
+        <div class="col-lg-4">
+          <div class="glass-panel p-4 h-100 position-relative overflow-hidden group">
+            <div class="position-absolute top-0 end-0 p-3 opacity-25 text-primary fs-1"><i class="bi bi-cart3"></i></div>
+            <h4 class="mb-3">E-Commerce</h4>
+            <p class="text-muted mb-0">Automate order tracking, process returns, and provide 24/7 product recommendations.</p>
+          </div>
+        </div>
+        <!-- Healthcare -->
+        <div class="col-lg-4">
+          <div class="glass-panel p-4 h-100 position-relative overflow-hidden group">
+            <div class="position-absolute top-0 end-0 p-3 opacity-25 text-secondary fs-1"><i class="bi bi-heart-pulse"></i></div>
+            <h4 class="mb-3">Healthcare</h4>
+            <p class="text-muted mb-0">Securely schedule appointments, answer basic symptom queries, and route emergencies to staff.</p>
+          </div>
+        </div>
+        <!-- Finance -->
+        <div class="col-lg-4">
+          <div class="glass-panel p-4 h-100 position-relative overflow-hidden group">
+            <div class="position-absolute top-0 end-0 p-3 opacity-25 text-warning fs-1"><i class="bi bi-bank"></i></div>
+            <h4 class="mb-3">Finance</h4>
+            <p class="text-muted mb-0">Handle account inquiries, assist with loan applications, and provide instant balance updates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Video Preview Section -->
+  <section class="py-5 my-5 bg-secondary bg-opacity-10 position-relative">
+    <div class="container relative z-1">
+      <div class="text-center mb-5">
+        <h2>See It <span class="text-gradient">In Action</span></h2>
+        <p class="mx-auto" style="max-width: 600px;">Watch how easily you can build and deploy a complex conversational flow.</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="glass-panel p-2 p-md-4 rounded-4 shadow-lg position-relative d-flex justify-content-center align-items-center" style="height: 450px; background-image: url('assets/images/deploy_cloud.png'); background-size: cover; background-position: center; border: 2px solid var(--border-color);">
+             <div class="position-absolute w-100 h-100 top-0 start-0 bg-dark bg-opacity-50 rounded-4 d-flex justify-content-center align-items-center">
+                <button class="btn btn-primary rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;" aria-label="Play Video">
+                  <i class="bi bi-play-fill" style="font-size: 3rem; margin-left: 5px;"></i>
+                </button>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
   <footer class="mega-footer mt-auto">
     <div class="container">
       <div class="row g-4 mb-5">

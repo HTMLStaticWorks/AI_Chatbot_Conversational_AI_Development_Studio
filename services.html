@@ -99,7 +99,7 @@
 
 <main>
     <section class="hero-section text-center position-relative" style="min-height: 40vh; padding: 120px 0 60px;">
-      <div class="hero-bg"></div>
+      <div class="hero-bg hero-bg--services"></div>
       <div class="container position-relative z-1">
         <h1>Enterprise <span class="text-gradient">Features</span></h1>
         <p class="lead mx-auto mb-5" style="max-width: 700px;">Everything you need to automate your customer experience without writing a single line of code.</p>
@@ -108,6 +108,10 @@
 
     <section class="py-5 mb-5">
       <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="text-primary">Our Comprehensive Services</h2>
+          <p class="text-muted">Empowering your business with scalable conversational AI solutions.</p>
+        </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
           <div class="col">
             <div class="service-card text-center d-flex flex-column h-100">
@@ -163,6 +167,111 @@
               <p class="mb-0 flex-grow-1">Gain insights into customer intent, bot performance, sentiment analysis, and resolution rates in real time.</p>
             </div>
           </div>
+          <div class="col">
+            <div class="service-card text-center d-flex flex-column h-100">
+              <div class="icon-box mx-auto">
+                <i class="bi bi-mic"></i>
+              </div>
+              <h4 class="mb-3">Voice Intelligence</h4>
+              <p class="mb-0 flex-grow-1">Transcribe and analyze speech in real-time, enabling voice-driven chatbots for IVR and accessibility.</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="service-card text-center d-flex flex-column h-100">
+              <div class="icon-box mx-auto">
+                <i class="bi bi-diagram-3"></i>
+              </div>
+              <h4 class="mb-3">CRM Integration</h4>
+              <p class="mb-0 flex-grow-1">Connect natively with Salesforce, HubSpot, and Zendesk to sync customer data and automate workflows instantly.</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="service-card text-center d-flex flex-column h-100">
+              <div class="icon-box mx-auto">
+                <i class="bi bi-lightning"></i>
+              </div>
+              <h4 class="mb-3">Automated Workflows</h4>
+              <p class="mb-0 flex-grow-1">Trigger multi-step logic and API calls directly from chat to handle complex resolutions without human intervention.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-5 bg-darker">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="text-primary">How It Works</h2>
+          <p class="text-muted">A simple, scalable process to get your AI assistant live.</p>
+        </div>
+        <div class="row g-4 position-relative">
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="d-inline-block rounded-circle mb-3 overflow-hidden shadow-sm border border-primary border-opacity-25" style="width: 100px; height: 100px;">
+              <img src="assets/images/data_connect.png" alt="Connect Data" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <h5>Connect Data</h5>
+            <p class="text-muted small">Upload your PDFs, URLs, and documentation to train the model securely.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="d-inline-block rounded-circle mb-3 overflow-hidden shadow-sm border border-primary border-opacity-25" style="width: 100px; height: 100px;">
+              <img src="assets/images/customize_bot.png" alt="Customize Bot" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <h5>Customize Bot</h5>
+            <p class="text-muted small">Adjust the tone, personality, and visual branding to match your company.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="d-inline-block rounded-circle mb-3 overflow-hidden shadow-sm border border-primary border-opacity-25" style="width: 100px; height: 100px;">
+              <img src="assets/images/test_refine.png" alt="Test & Refine" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <h5>Test & Refine</h5>
+            <p class="text-muted small">Simulate conversations in the sandbox to ensure accurate responses.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="d-inline-block rounded-circle mb-3 overflow-hidden shadow-sm border border-primary border-opacity-25" style="width: 100px; height: 100px;">
+              <img src="assets/images/deploy_cloud.png" alt="Deploy Anywhere" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <h5>Deploy Anywhere</h5>
+            <p class="text-muted small">Embed on your website or connect to messaging apps instantly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technologies We Use Section -->
+    <style>
+      .tech-tag {
+        transition: all 0.3s ease;
+        opacity: 0.75;
+        cursor: pointer;
+        min-height: 56px;
+      }
+      .tech-tag:hover {
+        transform: translateY(-5px);
+        opacity: 1;
+        background-color: rgba(13, 110, 253, 0.1); /* fallback */
+        border-color: var(--bs-primary) !important;
+        color: var(--bs-primary);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+    <section class="py-5">
+      <div class="container text-center">
+        <div class="mb-5">
+          <h2>Built on Leading Tech</h2>
+          <p class="text-muted">We leverage the best tools in the industry to ensure performance and reliability.</p>
+        </div>
+        <div class="row text-start mb-5">
+          <div class="col-md-8 mx-auto text-center">
+            <p class="lead">Our conversational AI infrastructure is built on an enterprise-grade stack, designed to handle millions of interactions with zero downtime. From state-of-the-art Large Language Models customized for industry-specific terminology to highly scalable vector databases for lightning-fast knowledge retrieval, we ensure that every conversation feels natural, intelligent, and secure.</p>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap justify-content-center gap-4 align-items-stretch">
+          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i class="bi bi-google fs-3 me-2"></i>TensorFlow</div>
+          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i class="bi bi-braces fs-3 me-2"></i>PyTorch</div>
+          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i class="bi bi-cloud fs-3 me-2"></i>AWS</div>
+          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i class="bi bi-database fs-3 me-2"></i>Pinecone</div>
+          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i class="bi bi-terminal fs-3 me-2"></i>LangChain</div>
         </div>
       </div>
     </section>
