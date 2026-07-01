@@ -1,24 +1,46 @@
 /* RTL Layout Styles */
-body.rtl-mode {
+html[dir="rtl"] {
   direction: rtl;
+}
+
+html[dir="rtl"] body {
   text-align: right;
 }
 
-body.rtl-mode .navbar-nav {
+html[dir="rtl"] .navbar-nav {
   padding-right: 0;
+  padding-left: 0;
 }
 
-body.rtl-mode .ms-auto {
+html[dir="rtl"] .ms-auto {
   margin-left: 0 !important;
   margin-right: auto !important;
 }
 
-body.rtl-mode .me-auto {
+html[dir="rtl"] .me-auto {
   margin-right: 0 !important;
   margin-left: auto !important;
 }
 
-/* Adjust margins and paddings for RTL components if needed */
+html[dir="rtl"] .me-3 {
+  margin-right: 0 !important;
+  margin-left: 1rem !important;
+}
+
+html[dir="rtl"] .ms-3 {
+  margin-left: 0 !important;
+  margin-right: 1rem !important;
+}
+
+html[dir="rtl"] .border-start {
+  border-left: 0 !important;
+  border-right: 1px solid var(--border-color) !important;
+}
+
+html[dir="rtl"] .ps-3 {
+  padding-left: 0 !important;
+  padding-right: 1rem !important;
+}
 
 /* Fix input-group border radiuses and margin for RTL so eye icon doesn't shift or look broken */
 html[dir="rtl"] .input-group > .form-control {

@@ -19,7 +19,7 @@
     .sidebar-link { padding: 10px 20px; color: var(--text-color); text-decoration: none; display: flex; align-items: center; gap: 10px; font-weight: 500; }
     .sidebar-link:hover, .sidebar-link.active { background-color: rgba(13, 110, 253, 0.1); color: var(--primary); }
     @media (max-width: 768px) {
-      .sidebar { position: fixed; z-index: 1000; height: calc(100vh - 76px); transform: translateX(-100%); }
+      .sidebar { position: fixed; z-index: 1050; height: 100vh; top: 0; transform: translateX(-100%); background-color: var(--bg-color-alt) !important; box-shadow: var(--glass-shadow); }
       .sidebar.show { transform: translateX(0); }
       body.rtl-mode .sidebar { transform: translateX(100%); }
       body.rtl-mode .sidebar.show { transform: translateX(0); }
@@ -44,183 +44,122 @@
         <i class="bi bi-robot fs-2 text-primary"></i>
         <span class="fs-4">ChatAI<span class="text-gradient">Studio</span></span>
       </a>
-      <button class="navbar-toggler btn-outline-glass border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
-        <i class="bi bi-list fs-2 text-primary"></i>
-      </button>
 
-      <div class="collapse navbar-collapse d-none d-xl-flex" id="navbarNav">
-        <ul class="navbar-nav mx-auto gap-3">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-        </ul>
-        <div class="d-flex align-items-center gap-3">
-          <button class="theme-toggle me-2" aria-label="Toggle RTL" title="Toggle RTL" onclick="let dirTarget = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; document.documentElement.setAttribute('dir', dirTarget); localStorage.setItem('dir', dirTarget);">
+      <!-- Right Side Actions (Always Visible) -->
+      <div class="d-flex align-items-center gap-3 ms-auto me-3 order-xl-last">
+        <!-- Theme & RTL Toggles (Desktop only) -->
+        <div class="d-none d-xl-flex align-items-center gap-2">
+          <button class="theme-toggle" aria-label="Toggle RTL" title="Toggle RTL" onclick="document.documentElement.setAttribute('dir', document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'); localStorage.setItem('dir', document.documentElement.getAttribute('dir'));">
             <i class="bi bi-arrow-left-right"></i>
           </button>
-          <button class="theme-toggle" aria-label="Toggle Theme" onclick="let themeTarget = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', themeTarget); localStorage.setItem('theme', themeTarget);">
+          <button class="theme-toggle" aria-label="Toggle Theme" onclick="document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); localStorage.setItem('theme', document.documentElement.getAttribute('data-theme'));">
             <i class="bi bi-sun"></i>
           </button>
-          <a href="login.html" class="btn btn-outline-glass">Login</a>
         </div>
+        
+        <!-- User Profile with Avatar Image -->
+        <div class="d-flex align-items-center gap-2 border-start ps-3 border-secondary border-opacity-25">
+          <img src="assets/images/david.png" alt="User Profile" class="rounded-circle border border-primary border-2" style="width: 32px; height: 32px; object-fit: cover;">
+          <span class="fw-bold fs-6 d-none d-md-inline" style="color: var(--text-color);">User Name</span>
+        </div>
+        
+        <!-- Logout Button -->
+        <a href="index.html" class="btn btn-sm btn-outline-glass"><i class="bi bi-box-arrow-right me-1 d-md-none"></i><span class="d-none d-md-inline">Logout</span></a>
       </div>
+
+      <button class="navbar-toggler btn-outline-glass border-0" type="button" onclick="document.getElementById('dashboard-sidebar').classList.add('show')">
+        <i class="bi bi-list fs-2 text-primary"></i>
+      </button>
     </div>
   </nav>
 
-  <!-- Mobile Offcanvas Menu -->
-  <div class="offcanvas offcanvas-end d-xl-none glass-panel border-0" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
-    <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
-      <h5 class="offcanvas-title d-flex align-items-center gap-2" id="mobileMenuLabel">
-        <i class="bi bi-robot fs-4 text-primary"></i>
-        ChatAI<span class="text-gradient">Studio</span>
-      </h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <ul class="navbar-nav gap-3 mb-4">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-      </ul>
-      <div class="d-flex align-items-center gap-3 mb-4 justify-content-center">
-        <button class="theme-toggle" aria-label="Toggle RTL" onclick="let mobileDir = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; document.documentElement.setAttribute('dir', mobileDir); localStorage.setItem('dir', mobileDir);">
-          <i class="bi bi-arrow-left-right"></i>
-        </button>
-        <button class="theme-toggle" aria-label="Toggle Theme" onclick="let mobileTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', mobileTheme); localStorage.setItem('theme', mobileTheme);">
-          <i class="bi bi-sun"></i>
-        </button>
-      </div>
-      <div class="d-flex flex-column gap-2">
-        <a href="login.html" class="btn btn-outline-glass w-100">Login</a>
-      </div>
-    </div>
-  </div>
   <div class="dashboard-wrapper">
     <aside class="sidebar" id="dashboard-sidebar">
-      <div class="p-3 border-bottom d-flex align-items-center justify-content-between">
-        <a href="index.html" class="text-decoration-none d-flex align-items-center fw-bold">
-          <i class="bi bi-robot fs-4 text-primary me-2"></i><span class="text-dark">ChatAI Studio</span>
-        </a>
-        <button class="btn btn-sm btn-light d-md-none" id="sidebar-toggle"><i class="bi bi-x"></i></button>
+      <div class="p-3 border-bottom d-flex align-items-center justify-content-between d-md-none">
+        <span class="fw-bold text-gradient">Menu</span>
+        <button class="btn btn-sm btn-light" id="sidebar-toggle"><i class="bi bi-x fs-4"></i></button>
       </div>
-      <div class="flex-grow-1 py-3">
+      <div class="flex-grow-1 py-3" style="overflow-y: auto;">
+        <small class="text-muted px-3 mb-2 d-block text-uppercase fw-bold" style="font-size: 0.75rem; letter-spacing: 1px;">Dashboard</small>
         <a href="dashboard.html" class="sidebar-link"><i class="bi bi-grid"></i> Overview</a>
         <a href="knowledge-base.html" class="sidebar-link"><i class="bi bi-book"></i> Knowledge Base</a>
         <a href="live-logs.html" class="sidebar-link active"><i class="bi bi-chat-dots"></i> Live Logs</a>
-        <a href="#" class="sidebar-link"><i class="bi bi-bar-chart"></i> Analytics</a>
-        <a href="#" class="sidebar-link"><i class="bi bi-gear"></i> Settings</a>
-      </div>
-      <div class="p-3 border-top">
-        <div class="d-flex align-items-center mb-3">
-          <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">U</div>
-          <div><small class="d-block fw-bold">User Name</small></div>
+        <a href="analytics.html" class="sidebar-link"><i class="bi bi-bar-chart"></i> Analytics</a>
+        <a href="settings.html" class="sidebar-link"><i class="bi bi-gear"></i> Settings</a>
+
+        <!-- Settings & Toggles (Mobile View Only) -->
+        <div class="d-md-none mt-4 pt-3 border-top border-secondary border-opacity-25">
+          <div class="px-3 d-flex gap-3 justify-content-start">
+            <button class="btn btn-sm btn-outline-glass rounded-circle p-2" aria-label="Toggle RTL" onclick="document.documentElement.setAttribute('dir', document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'); localStorage.setItem('dir', document.documentElement.getAttribute('dir'));">
+              <i class="bi bi-arrow-left-right"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-glass rounded-circle p-2" aria-label="Toggle Theme" onclick="document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); localStorage.setItem('theme', document.documentElement.getAttribute('data-theme'));">
+              <i class="bi bi-sun"></i>
+            </button>
+          </div>
         </div>
-        <a href="login.html" class="btn btn-outline-danger btn-sm w-100"><i class="bi bi-box-arrow-right me-1"></i> Logout</a>
       </div>
     </aside>
 
     <main class="main-content">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div class="d-flex align-items-center gap-2">
-          <button class="btn btn-light d-md-none" onclick="document.getElementById('dashboard-sidebar').classList.add('show')"><i class="bi bi-list"></i></button>
           <h2 class="h4 mb-0">Live Conversation Logs</h2>
         </div>
       </div>
-      
-      <div class="card card-custom p-3 text-start">
-        <div class="table-responsive">
-          <table class="table table-hover align-middle">
-            <thead>
-              <tr>
-                <th>User ID</th>
-                <th>Last Message</th>
-                <th>Status</th>
-                <th>Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>#1024</td>
-                <td class="text-truncate" style="max-width: 250px;">"How do I reset my password?"</td>
-                <td><span class="badge bg-success">Resolved (AI)</span></td>
-                <td>2 mins ago</td>
-              </tr>
-              <tr>
-                <td>#1025</td>
-                <td class="text-truncate" style="max-width: 250px;">"I need to speak to a human."</td>
-                <td><span class="badge bg-warning text-dark">Escalated</span></td>
-                <td>5 mins ago</td>
-              </tr>
-            </tbody>
-          </table>
+
+      <div class="row g-4">
+        <!-- Logs Table Column -->
+        <div class="col-lg-7">
+          <div class="card card-custom p-3 text-start h-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted small"><i class="bi bi-arrow-repeat spin text-primary me-1"></i> Live updating logs...</span>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover align-middle" id="logs-table">
+                <thead>
+                  <tr>
+                    <th>User ID</th>
+                    <th>Last Message</th>
+                    <th>Status</th>
+                    <th>Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Filled dynamically via dashboard.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transcript Details Column -->
+        <div class="col-lg-5">
+          <div class="transcript-panel text-start">
+            <div class="d-flex justify-content-between align-items-center pb-2 border-bottom border-secondary border-opacity-25 mb-3">
+              <div>
+                <h5 class="fw-bold mb-1" id="transcript-user-id">User ID: #1024</h5>
+                <small class="text-muted">Live Conversation Transcript</small>
+              </div>
+              <div id="transcript-status-badge">
+                <span class="badge bg-success">Resolved (AI)</span>
+              </div>
+            </div>
+
+            <!-- Messages stream -->
+            <div class="transcript-messages d-flex flex-column gap-3" id="log-transcript-messages">
+              <!-- Injected dynamically via dashboard.js -->
+            </div>
+
+            <!-- Handoff Action -->
+            <div class="mt-4 pt-3 border-top border-secondary border-opacity-25 text-center">
+              <button id="takeover-btn" class="btn btn-primary-gradient w-100 btn-sm" style="display: none;"><i class="bi bi-person-fill-gear"></i> Hijack & Speak to Human</button>
+            </div>
+          </div>
         </div>
       </div>
     </main>
   </div>
-    <!-- Footer -->
-  <footer class="mega-footer mt-auto">
-    <div class="container">
-      <div class="row g-4 mb-5">
-        <div class="col-lg-4">
-          <a class="navbar-brand d-flex align-items-center gap-2 mb-3" href="index.html">
-            <i class="bi bi-robot fs-3 text-primary"></i>
-            <span class="fs-4">ChatAI<span class="text-gradient">Studio</span></span>
-          </a>
-          <p class="text-muted pe-lg-4 mb-4">Building the future of conversational experiences for innovative startups and global enterprises.</p>
-          <div class="d-flex gap-3">
-            <a href="#" class="btn btn-outline-glass rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;" title="Twitter">
-              <i class="bi bi-twitter-x"></i>
-            </a>
-            <a href="#" class="btn btn-outline-glass rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;" title="LinkedIn">
-              <i class="bi bi-linkedin"></i>
-            </a>
-            <a href="#" class="btn btn-outline-glass rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;" title="GitHub">
-              <i class="bi bi-github"></i>
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-4 col-6">
-          <h5 class="footer-heading">Company</h5>
-          <a href="about.html" class="footer-link">About Us</a>
-          <a href="services.html" class="footer-link">Features</a>
-          <a href="pricing.html" class="footer-link">Pricing</a>
-          <a href="contact.html" class="footer-link">Contact</a>
-        </div>
-        <div class="col-lg-2 col-md-4 col-6">
-          <h5 class="footer-heading">Resources</h5>
-          <a href="blog.html" class="footer-link">Blog</a>
-          <a href="dashboard.html" class="footer-link">Dashboard</a>
-          <a href="#" class="footer-link">Documentation</a>
-          <a href="#" class="footer-link">API Reference</a>
-        </div>
-        <div class="col-lg-4 col-md-4">
-          <h5 class="footer-heading">Newsletter</h5>
-          <p class="text-muted mb-3">Subscribe to get the latest AI updates and product news.</p>
-          <form class="d-flex gap-2">
-            <input type="email" class="form-control bg-transparent border-secondary border-opacity-50 text-white" placeholder="Email address" required>
-            <button class="btn btn-primary-gradient px-4" type="submit">Subscribe</button>
-          </form>
-        </div>
-      </div>
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4 border-top border-secondary border-opacity-25">
-        <p class="text-muted mb-3 mb-md-0">&copy; 2026 ChatAI Studio. All rights reserved.</p>
-        <div class="d-flex gap-4">
-          <a href="#" class="text-muted text-decoration-none">Privacy Policy</a>
-          <a href="#" class="text-muted text-decoration-none">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>

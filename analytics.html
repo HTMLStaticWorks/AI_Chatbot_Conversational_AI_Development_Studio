@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics - AI Chatbot Studio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <style>
+    /* Dashboard specific layout */
+    .dashboard-wrapper { display: flex; height: calc(100vh - 76px); overflow: hidden; }
+    .sidebar { width: 250px; background-color: var(--card-bg); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; transition: transform 0.3s ease; }
+    .main-content { flex-grow: 1; overflow-y: auto; background-color: var(--bg-color); padding: 20px; }
+    .sidebar-link { padding: 10px 20px; color: var(--text-color); text-decoration: none; display: flex; align-items: center; gap: 10px; font-weight: 500; }
+    .sidebar-link:hover, .sidebar-link.active { background-color: rgba(13, 110, 253, 0.1); color: var(--primary); }
+    @media (max-width: 768px) {
+      .sidebar { position: fixed; z-index: 1050; height: 100vh; top: 0; transform: translateX(-100%); background-color: var(--bg-color-alt) !important; box-shadow: var(--glass-shadow); }
+      .sidebar.show { transform: translateX(0); }
+      body.rtl-mode .sidebar { transform: translateX(100%); }
+      body.rtl-mode .sidebar.show { transform: translateX(0); }
+    }
+  </style>
+  <script>
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    const savedDir = localStorage.getItem('dir');
+    if (savedDir) {
+        document.documentElement.setAttribute('dir', savedDir);
+    }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-xl sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <i class="bi bi-robot fs-2 text-primary"></i>
+        <span class="fs-4">ChatAI<span class="text-gradient">Studio</span></span>
+      </a>
+
+      <!-- Right Side Actions (Always Visible) -->
+      <div class="d-flex align-items-center gap-3 ms-auto me-3 order-xl-last">
+        <!-- Theme & RTL Toggles (Desktop only) -->
+        <div class="d-none d-xl-flex align-items-center gap-2">
+          <button class="theme-toggle" aria-label="Toggle RTL" title="Toggle RTL" onclick="document.documentElement.setAttribute('dir', document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'); localStorage.setItem('dir', document.documentElement.getAttribute('dir'));">
+            <i class="bi bi-arrow-left-right"></i>
+          </button>
+          <button class="theme-toggle" aria-label="Toggle Theme" onclick="document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); localStorage.setItem('theme', document.documentElement.getAttribute('data-theme'));">
+            <i class="bi bi-sun"></i>
+          </button>
+        </div>
+        
+        <!-- User Profile with Avatar Image -->
+        <div class="d-flex align-items-center gap-2 border-start ps-3 border-secondary border-opacity-25">
+          <img src="assets/images/david.png" alt="User Profile" class="rounded-circle border border-primary border-2" style="width: 32px; height: 32px; object-fit: cover;">
+          <span class="fw-bold fs-6 d-none d-md-inline" style="color: var(--text-color);">User Name</span>
+        </div>
+        
+        <!-- Logout Button -->
+        <a href="index.html" class="btn btn-sm btn-outline-glass"><i class="bi bi-box-arrow-right me-1 d-md-none"></i><span class="d-none d-md-inline">Logout</span></a>
+      </div>
+
+      <button class="navbar-toggler btn-outline-glass border-0" type="button" onclick="document.getElementById('dashboard-sidebar').classList.add('show')">
+        <i class="bi bi-list fs-2 text-primary"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="dashboard-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="dashboard-sidebar">
+      <div class="p-3 border-bottom d-flex align-items-center justify-content-between d-md-none">
+        <span class="fw-bold text-gradient">Menu</span>
+        <button class="btn btn-sm btn-light" id="sidebar-toggle"><i class="bi bi-x fs-4"></i></button>
+      </div>
+      <div class="flex-grow-1 py-3" style="overflow-y: auto;">
+        <small class="text-muted px-3 mb-2 d-block text-uppercase fw-bold" style="font-size: 0.75rem; letter-spacing: 1px;">Dashboard</small>
+        <a href="dashboard.html" class="sidebar-link"><i class="bi bi-grid"></i> Overview</a>
+        <a href="knowledge-base.html" class="sidebar-link"><i class="bi bi-book"></i> Knowledge Base</a>
+        <a href="live-logs.html" class="sidebar-link"><i class="bi bi-chat-dots"></i> Live Logs</a>
+        <a href="analytics.html" class="sidebar-link active"><i class="bi bi-bar-chart"></i> Analytics</a>
+        <a href="settings.html" class="sidebar-link"><i class="bi bi-gear"></i> Settings</a>
+
+        <!-- Settings & Toggles (Mobile View Only) -->
+        <div class="d-md-none mt-4 pt-3 border-top border-secondary border-opacity-25">
+          <div class="px-3 d-flex gap-3 justify-content-start">
+            <button class="btn btn-sm btn-outline-glass rounded-circle p-2" aria-label="Toggle RTL" onclick="document.documentElement.setAttribute('dir', document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'); localStorage.setItem('dir', document.documentElement.getAttribute('dir'));">
+              <i class="bi bi-arrow-left-right"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-glass rounded-circle p-2" aria-label="Toggle Theme" onclick="document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); localStorage.setItem('theme', document.documentElement.getAttribute('data-theme'));">
+              <i class="bi bi-sun"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="h4 mb-0">Analytics & Performance</h2>
+        <div class="d-flex gap-2">
+          <select class="form-select bg-transparent border-secondary border-opacity-50 btn-sm" style="width: auto;" id="analytics-timeframe">
+            <option value="7days" class="bg-transparent text-body">Last 7 Days</option>
+            <option value="30days" class="bg-transparent text-body">Last 30 Days</option>
+            <option value="90days" class="bg-transparent text-body">Last 90 Days</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-3">
+          <div class="card card-custom p-3 h-100 text-start">
+            <div class="text-muted small mb-1">Total Sessions</div>
+            <h4 class="text-primary fw-bold mb-0">12,450</h4>
+            <small class="text-success"><i class="bi bi-arrow-up-short"></i> +15.4%</small>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card card-custom p-3 h-100 text-start">
+            <div class="text-muted small mb-1">Avg Response Time</div>
+            <h4 class="text-primary fw-bold mb-0">0.82s</h4>
+            <small class="text-success"><i class="bi bi-arrow-down-short"></i> -12.3% faster</small>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card card-custom p-3 h-100 text-start">
+            <div class="text-muted small mb-1">AI Deflection Rate</div>
+            <h4 class="text-primary fw-bold mb-0">68.2%</h4>
+            <small class="text-success"><i class="bi bi-arrow-up-short"></i> +2.1%</small>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card card-custom p-3 h-100 text-start">
+            <div class="text-muted small mb-1">Positive Feedback (CSAT)</div>
+            <h4 class="text-primary fw-bold mb-0">94.8%</h4>
+            <small class="text-muted">3,200 ratings</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Graph Section -->
+      <div class="row g-4 mb-4">
+        <div class="col-lg-8">
+          <div class="card card-custom p-4 text-start h-100">
+            <h5 class="mb-3 fw-bold">Performance Over Time</h5>
+            <div style="height: 250px; background: rgba(0,0,0,0.1); border-radius: var(--border-radius); padding: 15px; border: 1px solid var(--border-color);">
+              <svg width="100%" height="100%" viewBox="0 0 600 220" preserveAspectRatio="none">
+                <!-- Grid Lines -->
+                <line x1="40" y1="20" x2="580" y2="20" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4" />
+                <line x1="40" y1="70" x2="580" y2="70" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4" />
+                <line x1="40" y1="120" x2="580" y2="120" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4" />
+                <line x1="40" y1="170" x2="580" y2="170" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4" />
+                
+                <!-- Line representing Sessions -->
+                <path d="M 40 160 Q 130 110 220 130 T 400 60 T 580 40" fill="none" stroke="var(--primary)" stroke-width="3" />
+                <path d="M 40 160 Q 130 110 220 130 T 400 60 T 580 40 L 580 170 L 40 170 Z" fill="url(#sessionGradient)" opacity="0.15" />
+                
+                <!-- Line representing Deflection -->
+                <path d="M 40 170 Q 130 140 220 150 T 400 90 T 580 70" fill="none" stroke="#22c55e" stroke-width="3" />
+
+                <!-- Gradients -->
+                <defs>
+                  <linearGradient id="sessionGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="var(--primary)"></stop>
+                    <stop offset="100%" stop-color="var(--primary)" stop-opacity="0"></stop>
+                  </linearGradient>
+                </defs>
+
+                <!-- Labels -->
+                <text x="40" y="195" fill="var(--text-muted)" font-size="10" text-anchor="middle">Mon</text>
+                <text x="130" y="195" fill="var(--text-muted)" font-size="10" text-anchor="middle">Tue</text>
+                <text x="220" y="195" fill="var(--text-muted)" font-size="10" text-anchor="middle">Wed</text>
+                <text x="310" y="195" fill="var(--text-muted)" font-size="10" text-anchor="middle">Thu</text>
+                <text x="400" y="195" fill="var(--text-muted)" font-size="10" text-anchor="middle">Fri</text>
+                <text x="490" y="195" fill="var(--text-muted)" font-size="10" text-anchor="middle">Sat</text>
+                <text x="580" y="195" fill="var(--text-muted)" font-size="10" text-anchor="middle">Sun</text>
+                
+                <!-- Y-Axis Labels -->
+                <text x="30" y="24" fill="var(--text-muted)" font-size="9" text-anchor="end">2,000</text>
+                <text x="30" y="74" fill="var(--text-muted)" font-size="9" text-anchor="end">1,500</text>
+                <text x="30" y="124" fill="var(--text-muted)" font-size="9" text-anchor="end">1,000</text>
+                <text x="30" y="174" fill="var(--text-muted)" font-size="9" text-anchor="end">500</text>
+              </svg>
+            </div>
+            <div class="d-flex gap-3 justify-content-center mt-3">
+              <small class="d-flex align-items-center gap-1"><span class="d-inline-block rounded-circle" style="width: 8px; height: 8px; background: var(--primary);"></span> Total Sessions</small>
+              <small class="d-flex align-items-center gap-1"><span class="d-inline-block rounded-circle" style="width: 8px; height: 8px; background: #22c55e;"></span> AI Deflected Sessions</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card card-custom p-4 text-start h-100">
+            <h5 class="mb-3 fw-bold">Intent Categories</h5>
+            <div class="d-flex flex-column gap-3">
+              <div>
+                <div class="d-flex justify-content-between mb-1 small">
+                  <span>Product Troubleshooting</span>
+                  <span class="fw-bold">42%</span>
+                </div>
+                <div class="progress bg-secondary bg-opacity-25" style="height: 6px;">
+                  <div class="progress-bar bg-primary" role="progressbar" style="width: 42%" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex justify-content-between mb-1 small">
+                  <span>Pricing & Licensing</span>
+                  <span class="fw-bold">28%</span>
+                </div>
+                <div class="progress bg-secondary bg-opacity-25" style="height: 6px;">
+                  <div class="progress-bar bg-info" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex justify-content-between mb-1 small">
+                  <span>API Integration Help</span>
+                  <span class="fw-bold">18%</span>
+                </div>
+                <div class="progress bg-secondary bg-opacity-25" style="height: 6px;">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 18%" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex justify-content-between mb-1 small">
+                  <span>Account & Access</span>
+                  <span class="fw-bold">12%</span>
+                </div>
+                <div class="progress bg-secondary bg-opacity-25" style="height: 6px;">
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 12%" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 p-3 rounded bg-secondary bg-opacity-10">
+              <h6 class="small fw-bold mb-1"><i class="bi bi-lightning-charge-fill text-warning me-1"></i>AI Insight</h6>
+              <p class="mb-0 text-muted small">Troubleshooting queries rose by 8% this week. Consider updating the <a href="knowledge-base.html" class="text-primary text-decoration-none">Knowledge Base</a> with the new v2.1 setup guide.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Documents & Queries -->
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card card-custom p-4 text-start">
+            <h5 class="mb-3 fw-bold">Top Helpful Documents</h5>
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead>
+                  <tr class="text-muted small border-bottom border-secondary border-opacity-25">
+                    <th>Document Name</th>
+                    <th>Uses</th>
+                    <th>Satisfaction</th>
+                  </tr>
+                </thead>
+                <tbody class="small">
+                  <tr>
+                    <td>API Authentication Guide</td>
+                    <td>1,420</td>
+                    <td><span class="text-success"><i class="bi bi-star-fill me-1"></i>98%</span></td>
+                  </tr>
+                  <tr>
+                    <td>Billing and Plan Upgrade FAQ</td>
+                    <td>980</td>
+                    <td><span class="text-success"><i class="bi bi-star-fill me-1"></i>94%</span></td>
+                  </tr>
+                  <tr>
+                    <td>Deploying Widget in React/Vite</td>
+                    <td>850</td>
+                    <td><span class="text-success"><i class="bi bi-star-fill me-1"></i>91%</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card card-custom p-4 text-start">
+            <h5 class="mb-3 fw-bold">Unresolved Intents (No Match)</h5>
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead>
+                  <tr class="text-muted small border-bottom border-secondary border-opacity-25">
+                    <th>User Inquiry Phrase</th>
+                    <th>Occurrences</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody class="small">
+                  <tr>
+                    <td>"Does ChatAI Studio support self-hosting?"</td>
+                    <td>143</td>
+                    <td><a href="knowledge-base.html" class="btn btn-xs btn-outline-glass py-1 px-2 text-decoration-none">Add Info</a></td>
+                  </tr>
+                  <tr>
+                    <td>"Is there a student discount program?"</td>
+                    <td>98</td>
+                    <td><a href="knowledge-base.html" class="btn btn-xs btn-outline-glass py-1 px-2 text-decoration-none">Add Info</a></td>
+                  </tr>
+                  <tr>
+                    <td>"Can I integrate with WeChat API?"</td>
+                    <td>67</td>
+                    <td><a href="knowledge-base.html" class="btn btn-xs btn-outline-glass py-1 px-2 text-decoration-none">Add Info</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Sidebar toggle for mobile view
+    document.getElementById('sidebar-toggle')?.addEventListener('click', () => {
+      document.getElementById('dashboard-sidebar')?.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
