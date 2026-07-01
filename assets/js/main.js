@@ -47,4 +47,32 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('dir', dir);
     });
   }
+
+  // Back to Top Button
+  const footer = document.querySelector('.mega-footer');
+  if (footer) {
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.id = 'backToTop';
+    backToTopBtn.className = 'btn btn-primary-gradient rounded-circle back-to-top-btn';
+    backToTopBtn.title = 'Back to Top';
+    backToTopBtn.setAttribute('aria-label', 'Back to Top');
+    backToTopBtn.innerHTML = '<i class="bi bi-arrow-up"></i>';
+    document.body.appendChild(backToTopBtn);
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
 });
+

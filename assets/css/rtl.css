@@ -58,3 +58,28 @@ html[dir="rtl"] .input-group > .btn {
     margin-right: -1px;
     margin-left: 0;
 }
+
+/* FAQ Accordion RTL Alignment and Spacing */
+html[dir="rtl"] .accordion-button {
+  text-align: right !important;
+  padding-right: 1.25rem !important;
+  padding-left: 2.5rem !important;
+}
+
+html[dir="rtl"] .accordion-button::after {
+  margin-right: auto !important;
+  margin-left: 0 !important;
+}
+
+/* Logical positioning helper overrides for RTL */
+html[dir="rtl"] .end-0 {
+  right: auto !important;
+  left: 0 !important;
+}
+
+html[dir="rtl"] .start-0 {
+  left: auto !important;
+  right: 0 !important;
+}
+
+

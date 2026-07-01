@@ -644,3 +644,63 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
   gap: 10px;
 }
 
+/* Footer Social Media Icon Hover Effect */
+.mega-footer .d-flex a.btn-outline-glass.rounded-circle {
+  transition: var(--transition);
+}
+.mega-footer .d-flex a.btn-outline-glass.rounded-circle:hover {
+  background: var(--primary-gradient);
+  border-color: transparent;
+  color: #ffffff !important;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
+}
+
+/* Back to Top Button */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  z-index: 1050;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.back-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.6);
+  color: #ffffff;
+}
+
+.back-to-top-btn i {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* Ensure FAQ accordion button chevron is visible in dark mode */
+.accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="light"] .accordion-button::after {
+  filter: none;
+}
+
+
+
