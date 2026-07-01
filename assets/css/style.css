@@ -193,12 +193,16 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
   letter-spacing: -0.5px;
 }
 
+.navbar-nav {
+  gap: 0.5rem !important; /* Reduce space between menu items */
+}
 .nav-link {
   color: var(--text-color) !important;
   font-weight: 500;
   position: relative;
   transition: var(--transition);
-  padding: 8px 16px !important;
+  padding: 8px 12px !important; /* Reduced horizontal padding to prevent wrapping */
+  white-space: nowrap; /* Prevent menu items from wrapping */
 }
 .nav-link:hover, .nav-link.active {
   color: var(--primary) !important;
