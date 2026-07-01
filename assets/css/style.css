@@ -104,6 +104,36 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
   border-radius: var(--border-radius-lg);
 }
 
+/* Theme overrides for cards */
+.card {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* Global table theme styling */
+.table {
+  color: var(--text-color) !important;
+  --bs-table-color: var(--text-color) !important;
+  --bs-table-bg: var(--card-bg) !important;
+  --bs-table-border-color: var(--border-color) !important;
+}
+
+.table th, .table td {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
+}
+
+.table-hover tbody tr:hover {
+  color: var(--text-color) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="light"] .table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
 /* Buttons */
 .btn {
   padding: 12px 28px;
@@ -144,6 +174,7 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
 }
 
 [data-theme="light"] .form-control,
+[data-theme="light"] .form-control.text-white,
 [data-theme="light"] .form-select {
   color: #0f172a !important;
   background-color: rgba(0, 0, 0, 0.03) !important;
@@ -155,8 +186,14 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
 }
 
 [data-theme="light"] .form-control::placeholder,
+[data-theme="light"] .form-control.text-white::placeholder,
 [data-theme="light"] .form-select::placeholder {
   color: #64748b !important;
+  opacity: 0.8 !important;
+}
+
+[data-theme="light"] .preview-bubble-bot {
+  background-color: rgba(0, 0, 0, 0.03) !important;
 }
 
 .btn-primary-gradient {
@@ -411,7 +448,7 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1101px) {
   .dashboard-body .navbar-toggler {
     display: none !important;
   }
@@ -755,6 +792,11 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
   display: inline-flex;
   align-items: center;
   gap: 12px;
+}
+
+/* Disable body scrollbar on dashboard views to prevent double scrollbars */
+body.dashboard-body {
+  overflow: hidden !important;
 }
 
 

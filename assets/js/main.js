@@ -74,5 +74,44 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Dashboard Sidebar Handling
+  const sidebar = document.getElementById('dashboard-sidebar');
+  if (sidebar) {
+    // 1. MutationObserver to lock/unlock scroll
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          const isShow = sidebar.classList.contains('show');
+          const mainContent = document.querySelector('.main-content');
+          if (isShow) {
+            document.body.style.overflow = 'hidden';
+            if (mainContent) mainContent.style.overflow = 'hidden';
+          } else {
+            document.body.style.overflow = '';
+            if (mainContent) mainContent.style.overflow = '';
+          }
+        }
+      });
+    });
+    observer.observe(sidebar, { attributes: true, attributeFilter: ['class'] });
+
+    // 2. Auto-close sidebar on menu item selection
+    sidebar.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', () => {
+        sidebar.classList.remove('show');
+      });
+    });
+
+    // 3. Click outside to close
+    document.addEventListener('click', (e) => {
+      const toggler = document.querySelector('.navbar-toggler');
+      if (sidebar.classList.contains('show')) {
+        if (!sidebar.contains(e.target) && (!toggler || !toggler.contains(e.target))) {
+          sidebar.classList.remove('show');
+        }
+      }
+    });
+  }
 });
 
