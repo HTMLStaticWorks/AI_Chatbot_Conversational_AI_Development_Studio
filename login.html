@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - AI Chatbot Studio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <script>
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    const savedDir = localStorage.getItem('dir');
+    if (savedDir) {
+      document.documentElement.setAttribute('dir', savedDir);
+    }
+  </script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+  <div class="w-100 d-flex justify-content-end p-3 gap-2">
+    <button
+      class="theme-toggle btn btn-outline-secondary rounded-circle p-2 d-flex align-items-center justify-content-center"
+      style="width: 40px; height: 40px;" aria-label="Toggle RTL"
+      onclick="let dirTarget = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; document.documentElement.setAttribute('dir', dirTarget); localStorage.setItem('dir', dirTarget);">
+      <i class="bi bi-arrow-left-right"></i>
+    </button>
+    <button
+      class="theme-toggle btn btn-outline-secondary rounded-circle p-2 d-flex align-items-center justify-content-center"
+      style="width: 40px; height: 40px;" aria-label="Toggle Theme"
+      onclick="let themeTarget = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', themeTarget); localStorage.setItem('theme', themeTarget);">
+      <i class="bi bi-sun"></i>
+    </button>
+  </div>
+
+  <div class="flex-grow-1 d-flex align-items-center justify-content-center p-3 p-md-4">
+    <div class="card card-custom shadow p-4 p-md-5 w-100 border-0 mx-auto"
+      style="max-width: 480px; border-radius: 12px; background-color: var(--card-bg);">
+      <!-- Logo updated to exactly match the navbar logo design -->
+      <a href="index.html" class="text-decoration-none mb-4 d-flex align-items-center justify-content-center gap-2">
+        <i class="bi bi-robot fs-2 text-primary"></i>
+        <span class="fs-4 fw-bold">ChatAI<span class="text-gradient">Studio</span></span>
+      </a>
+      <h3 class="text-center fw-bold mb-4">Login</h3>
+      <p class="text-center">Continue to login to your account</p>
+      <form class="text-start">
+        <div class="mb-3">
+          <label class="form-label fw-medium">Email address</label>
+          <input type="email" class="form-control border-secondary" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-medium">Password</label>
+          <div class="input-group">
+            <input type="password" class="form-control border-secondary" id="pwdInput" placeholder="Enter your password" required>
+            <button class="btn bg-transparent border-secondary text-secondary px-3" type="button"
+              onclick="const pwd = document.getElementById('pwdInput'); const icon = this.querySelector('i'); if(pwd.type === 'password') {pwd.type = 'text'; icon.className = 'bi bi-eye-slash';} else {pwd.type = 'password'; icon.className = 'bi bi-eye';}"><i
+                class="bi bi-eye"></i></button>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="remember">
+            <label class="form-check-label text-muted" for="remember">Remember me</label>
+          </div>
+          <a href="#" class="text-decoration-none text-primary fw-medium">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary-gradient w-100 mb-4 fw-medium" style="border-radius: 8px;">Sign In</button>
+
+        <div class="position-relative mb-4">
+          <hr class="text-secondary opacity-25">
+          <div class="position-absolute top-50 start-50 translate-middle px-3 text-muted small" style="background-color: var(--card-bg);">Or
+            continue with</div>
+        </div>
+
+        <div class="d-flex gap-3 mb-4">
+          <button type="button"
+            class="btn btn-outline-glass w-100 d-flex justify-content-center align-items-center"
+            style="border-radius: 8px;"><i class="bi bi-google me-2"></i>Google</button>
+          <button type="button"
+            class="btn btn-outline-glass w-100 d-flex justify-content-center align-items-center"
+            style="border-radius: 8px;"><i class="bi bi-apple me-2"></i>Apple</button>
+        </div>
+
+        <div class="text-center">
+          <span class="text-muted">Don't have an account?</span> <a href="register.html"
+            class="text-decoration-none text-primary fw-bold">Sign up</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
