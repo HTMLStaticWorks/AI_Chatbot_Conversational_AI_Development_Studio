@@ -82,4 +82,8 @@ html[dir="rtl"] .start-0 {
   right: 0 !important;
 }
 
+html[dir="rtl"] .form-select {
+  padding: 12px 16px 12px 36px !important;
+}
+
 

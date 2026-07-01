@@ -125,11 +125,17 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
   border-bottom-left-radius: 0 !important;
 }
 
-/* Ensure form controls and selects match button heights and text visibility in light & dark modes */
-.form-control, .form-select {
+.form-control {
   padding: 12px 16px;
   color: var(--text-color) !important;
   background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.form-select {
+  padding: 12px 36px 12px 16px;
+  color: var(--text-color) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
 }
 
 .form-control::placeholder, .form-select::placeholder {
@@ -142,6 +148,10 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
   color: #0f172a !important;
   background-color: rgba(0, 0, 0, 0.03) !important;
   border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-theme="light"] .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%230f172a' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
 }
 
 [data-theme="light"] .form-control::placeholder,
@@ -384,6 +394,27 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
 .service-card:hover .icon-box {
   background: var(--primary-gradient);
   color: #fff;
+}
+
+@media (min-width: 768px) {
+  .service-card h4 {
+    min-height: 3.8rem;
+  }
+  .security-card h4 {
+    min-height: 3.8rem;
+  }
+  .value-card h4 {
+    min-height: 3.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 769px) {
+  .dashboard-body .navbar-toggler {
+    display: none !important;
+  }
 }
 
 /* Footer */
@@ -700,6 +731,30 @@ p { font-weight: 400; color: var(--text-muted); margin-bottom: 1.5rem; }
 
 [data-theme="light"] .accordion-button::after {
   filter: none;
+}
+
+/* Ensure placeholder text and input text are fully readable on primary background sections */
+.bg-primary .form-control {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+.bg-primary .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.bg-primary .form-control:focus {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Ensure logo and text spacing is direction-agnostic in the trusted partners section */
+.trusted-section h4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
 }
 
 
