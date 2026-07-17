@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services | ChatAI Studio</title>
-  
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  
+
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/dark-mode.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  
+
   <script>
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
     }
     const savedDir = localStorage.getItem('dir');
     if (savedDir) {
-        document.documentElement.setAttribute('dir', savedDir);
+      document.documentElement.setAttribute('dir', savedDir);
     }
   </script>
 </head>
+
 <body>
 
   <!-- Header -->
@@ -35,7 +37,8 @@
         <i class="bi bi-robot fs-2 text-primary"></i>
         <span class="fs-4">ChatAI<span class="text-gradient">Studio</span></span>
       </a>
-      <button class="navbar-toggler btn-outline-glass border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+      <button class="navbar-toggler btn-outline-glass border-0" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#mobileMenu">
         <i class="bi bi-list fs-2 text-primary"></i>
       </button>
 
@@ -51,10 +54,12 @@
           <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
         </ul>
         <div class="d-flex align-items-center gap-3">
-          <button class="theme-toggle me-2" aria-label="Toggle RTL" title="Toggle RTL" onclick="let dirTarget = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; document.documentElement.setAttribute('dir', dirTarget); localStorage.setItem('dir', dirTarget);">
+          <button class="theme-toggle me-2" aria-label="Toggle RTL" title="Toggle RTL"
+            onclick="let dirTarget = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; document.documentElement.setAttribute('dir', dirTarget); localStorage.setItem('dir', dirTarget);">
             <i class="bi bi-arrow-left-right"></i>
           </button>
-          <button class="theme-toggle" aria-label="Toggle Theme" onclick="let themeTarget = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', themeTarget); localStorage.setItem('theme', themeTarget);">
+          <button class="theme-toggle" aria-label="Toggle Theme"
+            onclick="let themeTarget = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', themeTarget); localStorage.setItem('theme', themeTarget);">
             <i class="bi bi-sun"></i>
           </button>
           <a href="login.html" class="btn btn-outline-glass">Login</a>
@@ -64,7 +69,8 @@
   </nav>
 
   <!-- Mobile Offcanvas Menu -->
-  <div class="offcanvas offcanvas-end d-xl-none glass-panel border-0" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+  <div class="offcanvas offcanvas-end d-xl-none glass-panel border-0" tabindex="-1" id="mobileMenu"
+    aria-labelledby="mobileMenuLabel">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <h5 class="offcanvas-title d-flex align-items-center gap-2" id="mobileMenuLabel">
         <i class="bi bi-robot fs-4 text-primary"></i>
@@ -84,10 +90,12 @@
         <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
       </ul>
       <div class="d-flex align-items-center gap-3 mb-4 justify-content-center">
-        <button class="theme-toggle" aria-label="Toggle RTL" onclick="let mobileDir = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; document.documentElement.setAttribute('dir', mobileDir); localStorage.setItem('dir', mobileDir);">
+        <button class="theme-toggle" aria-label="Toggle RTL"
+          onclick="let mobileDir = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; document.documentElement.setAttribute('dir', mobileDir); localStorage.setItem('dir', mobileDir);">
           <i class="bi bi-arrow-left-right"></i>
         </button>
-        <button class="theme-toggle" aria-label="Toggle Theme" onclick="let mobileTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', mobileTheme); localStorage.setItem('theme', mobileTheme);">
+        <button class="theme-toggle" aria-label="Toggle Theme"
+          onclick="let mobileTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', mobileTheme); localStorage.setItem('theme', mobileTheme);">
           <i class="bi bi-sun"></i>
         </button>
       </div>
@@ -97,20 +105,33 @@
     </div>
   </div>
 
-<main>
-    <section class="hero-section text-center position-relative" style="min-height: 40vh; padding: 120px 0 60px;">
+  <main>
+    <section class="hero-section text-center position-relative" id="services-hero"
+      style="min-height: 60vh; padding: 160px 0 100px;">
       <div class="hero-bg hero-bg--services"></div>
       <div class="container position-relative z-1">
-        <h1>Enterprise <span class="text-gradient">Features</span></h1>
-        <p class="lead mx-auto mb-5" style="max-width: 700px;">Everything you need to automate your customer experience without writing a single line of code.</p>
+        <h1>Our AI <span class="text-gradient">Services</span></h1>
+        <p class="lead mx-auto mb-4" style="max-width: 700px;">Bespoke conversational AI design, integration, and
+          development services built to scale your business.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2 mt-5">
+          <span
+            class="badge bg-secondary bg-opacity-10 border border-secondary border-opacity-25 rounded-pill px-4 py-2 text-primary fw-medium"><i
+              class="bi bi-code-slash me-1"></i> Custom Agent Development</span>
+          <span
+            class="badge bg-secondary bg-opacity-10 border border-secondary border-opacity-25 rounded-pill px-4 py-2 text-primary fw-medium"><i
+              class="bi bi-git me-1"></i> Systems Integration</span>
+          <span
+            class="badge bg-secondary bg-opacity-10 border border-secondary border-opacity-25 rounded-pill px-4 py-2 text-primary fw-medium"><i
+              class="bi bi-sliders me-1"></i> LLM Fine-Tuning</span>
+        </div>
       </div>
     </section>
 
-    <section class="py-5 mb-5">
+    <section class="py-5 mb-5" id="services-grid">
       <div class="container">
         <div class="text-center mb-5">
           <h2 class="text-primary">Our Comprehensive Services</h2>
-          <p class="text-muted">Empowering your business with scalable conversational AI solutions.</p>
+          <p class="text-muted">Empowering your business with scalable, custom conversational AI solutions.</p>
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
           <div class="col">
@@ -118,62 +139,9 @@
               <div class="icon-box mx-auto">
                 <i class="bi bi-robot"></i>
               </div>
-              <h4 class="mb-3">Custom AI Models</h4>
-              <p class="mb-0 flex-grow-1">Train your chatbots exclusively on your own knowledge base, FAQs, and documentation to ensure highly accurate responses.</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="service-card text-center d-flex flex-column h-100">
-              <div class="icon-box mx-auto">
-                <i class="bi bi-translate"></i>
-              </div>
-              <h4 class="mb-3">Multi-Language Support</h4>
-              <p class="mb-0 flex-grow-1">Automatically translate and respond in over 100 languages with native-level fluency to support global customers.</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="service-card text-center d-flex flex-column h-100">
-              <div class="icon-box mx-auto">
-                <i class="bi bi-person-lines-fill"></i>
-              </div>
-              <h4 class="mb-3">Human Handoff</h4>
-              <p class="mb-0 flex-grow-1">Seamlessly transition complex queries to live human agents without losing conversation context or history.</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="service-card text-center d-flex flex-column h-100">
-              <div class="icon-box mx-auto">
-                <i class="bi bi-chat-square-dots"></i>
-              </div>
-              <h4 class="mb-3">Omnichannel Deployment</h4>
-              <p class="mb-0 flex-grow-1">Deploy your bot simultaneously across your Website, WhatsApp, Messenger, Telegram, and SMS in one click.</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="service-card text-center d-flex flex-column h-100">
-              <div class="icon-box mx-auto">
-                <i class="bi bi-shield-check"></i>
-              </div>
-              <h4 class="mb-3">Enterprise Security</h4>
-              <p class="mb-0 flex-grow-1">SOC2 compliant, end-to-end encryption, and robust PII redaction ensures your data is always safe.</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="service-card text-center d-flex flex-column h-100">
-              <div class="icon-box mx-auto">
-                <i class="bi bi-graph-up-arrow"></i>
-              </div>
-              <h4 class="mb-3">Deep Analytics</h4>
-              <p class="mb-0 flex-grow-1">Gain insights into customer intent, bot performance, sentiment analysis, and resolution rates in real time.</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="service-card text-center d-flex flex-column h-100">
-              <div class="icon-box mx-auto">
-                <i class="bi bi-mic"></i>
-              </div>
-              <h4 class="mb-3">Voice Intelligence</h4>
-              <p class="mb-0 flex-grow-1">Transcribe and analyze speech in real-time, enabling voice-driven chatbots for IVR and accessibility.</p>
+              <h4 class="mb-3">Custom AI Agent Development</h4>
+              <p class="mb-0 flex-grow-1">We design and build bespoke virtual assistants, LLM-powered agents, and custom
+                chatbots tailored to your unique brand voice and business rules.</p>
             </div>
           </div>
           <div class="col">
@@ -181,17 +149,49 @@
               <div class="icon-box mx-auto">
                 <i class="bi bi-diagram-3"></i>
               </div>
-              <h4 class="mb-3">CRM Integration</h4>
-              <p class="mb-0 flex-grow-1">Connect natively with Salesforce, HubSpot, and Zendesk to sync customer data and automate workflows instantly.</p>
+              <h4 class="mb-3">Enterprise System Integration</h4>
+              <p class="mb-0 flex-grow-1">Seamlessly connect conversational interfaces with your existing CRMs
+                (Salesforce, HubSpot), ERPs, customer helpdesks, and legacy databases.</p>
             </div>
           </div>
           <div class="col">
             <div class="service-card text-center d-flex flex-column h-100">
               <div class="icon-box mx-auto">
-                <i class="bi bi-lightning"></i>
+                <i class="bi bi-chat-left-dots"></i>
               </div>
-              <h4 class="mb-3">Automated Workflows</h4>
-              <p class="mb-0 flex-grow-1">Trigger multi-step logic and API calls directly from chat to handle complex resolutions without human intervention.</p>
+              <h4 class="mb-3">Conversational UX & Design</h4>
+              <p class="mb-0 flex-grow-1">Design intuitive conversation flows, persona mapping, fallback behaviors, and
+                human-in-the-loop transition logic to optimize deflection rates.</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="service-card text-center d-flex flex-column h-100">
+              <div class="icon-box mx-auto">
+                <i class="bi bi-cpu"></i>
+              </div>
+              <h4 class="mb-3">LLM Tuning & Prompt Engineering</h4>
+              <p class="mb-0 flex-grow-1">Select, train, and fine-tune open-source or commercial Large Language Models
+                using your organization's proprietary datasets and documents.</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="service-card text-center d-flex flex-column h-100">
+              <div class="icon-box mx-auto">
+                <i class="bi bi-phone"></i>
+              </div>
+              <h4 class="mb-3">Omnichannel Setup & Deployment</h4>
+              <p class="mb-0 flex-grow-1">Deploy unified AI conversational systems across Web widgets, WhatsApp,
+                Facebook Messenger, Slack, Microsoft Teams, and voice assistants.</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="service-card text-center d-flex flex-column h-100">
+              <div class="icon-box mx-auto">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <h4 class="mb-3">Continuous Performance Tuning</h4>
+              <p class="mb-0 flex-grow-1">Conduct regular transcript audits, intent analysis, user sentiment tracking,
+                and database updates to ensure maximum accuracy and ROI.</p>
             </div>
           </div>
         </div>
@@ -207,29 +207,44 @@
         </div>
         <div class="row g-4 position-relative">
           <div class="col-lg-3 col-md-6 text-center">
-            <div class="d-inline-block rounded-circle mb-3 overflow-hidden shadow-sm border border-primary border-opacity-25" style="width: 100px; height: 100px;">
-              <img src="assets/images/data_connect.png" alt="Connect Data" style="width: 100%; height: 100%; object-fit: cover;">
+            <div
+              class="d-inline-block rounded-circle mb-3 overflow-hidden shadow-sm border border-primary border-opacity-25"
+              style="width: 100px; height: 100px;">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=150&h=150&q=80"
+                alt="Connect Data" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <h5>Connect Data</h5>
             <p class="text-muted small">Upload your PDFs, URLs, and documentation to train the model securely.</p>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
-            <div class="d-inline-block rounded-circle mb-3 overflow-hidden shadow-sm border border-primary border-opacity-25" style="width: 100px; height: 100px;">
-              <img src="assets/images/customize_bot.png" alt="Customize Bot" style="width: 100%; height: 100%; object-fit: cover;">
+            <div
+              class="d-inline-block rounded-circle mb-3 overflow-hidden shadow-sm border border-primary border-opacity-25"
+              style="width: 100px; height: 100px;">
+              <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=150&h=150&q=80"
+                alt="Customize Bot" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <h5>Customize Bot</h5>
             <p class="text-muted small">Adjust the tone, personality, and visual branding to match your company.</p>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
-            <div class="d-inline-block rounded-circle mb-3 overflow-hidden shadow-sm border border-primary border-opacity-25" style="width: 100px; height: 100px;">
-              <img src="assets/images/test_refine.png" alt="Test & Refine" style="width: 100%; height: 100%; object-fit: cover;">
+            <div
+              class="d-inline-block rounded-circle mb-3 overflow-hidden shadow-sm border border-primary border-opacity-25"
+              style="width: 100px; height: 100px;">
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=150&h=150&q=80"
+                alt="Test & Refine" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <h5>Test & Refine</h5>
             <p class="text-muted small">Simulate conversations in the sandbox to ensure accurate responses.</p>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
-            <div class="d-inline-block rounded-circle mb-3 overflow-hidden shadow-sm border border-primary border-opacity-25" style="width: 100px; height: 100px;">
-              <img src="assets/images/deploy_cloud.png" alt="Deploy Anywhere" style="width: 100%; height: 100%; object-fit: cover;">
+            <div
+              class="d-inline-block rounded-circle mb-3 overflow-hidden shadow-sm border border-primary border-opacity-25"
+              style="width: 100px; height: 100px;">
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=150&h=150&q=80"
+                alt="Deploy Anywhere" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <h5>Deploy Anywhere</h5>
             <p class="text-muted small">Embed on your website or connect to messaging apps instantly.</p>
@@ -247,10 +262,12 @@
         min-height: 56px;
         gap: 12px;
       }
+
       .tech-tag:hover {
         transform: translateY(-5px);
         opacity: 1;
-        background-color: rgba(13, 110, 253, 0.1); /* fallback */
+        background-color: rgba(13, 110, 253, 0.1);
+        /* fallback */
         border-color: var(--bs-primary) !important;
         color: var(--bs-primary);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -264,21 +281,29 @@
         </div>
         <div class="row text-start mb-5">
           <div class="col-md-8 mx-auto text-center">
-            <p class="lead">Our conversational AI infrastructure is built on an enterprise-grade stack, designed to handle millions of interactions with zero downtime. From state-of-the-art Large Language Models customized for industry-specific terminology to highly scalable vector databases for lightning-fast knowledge retrieval, we ensure that every conversation feels natural, intelligent, and secure.</p>
+            <p class="lead">Our conversational AI infrastructure is built on an enterprise-grade stack, designed to
+              handle millions of interactions with zero downtime. From state-of-the-art Large Language Models customized
+              for industry-specific terminology to highly scalable vector databases for lightning-fast knowledge
+              retrieval, we ensure that every conversation feels natural, intelligent, and secure.</p>
           </div>
         </div>
         <div class="d-flex flex-wrap justify-content-center gap-4 align-items-stretch">
-          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i class="bi bi-google fs-3"></i>TensorFlow</div>
-          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i class="bi bi-braces fs-3"></i>PyTorch</div>
-          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i class="bi bi-cloud fs-3"></i>AWS</div>
-          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i class="bi bi-database fs-3"></i>Pinecone</div>
-          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i class="bi bi-terminal fs-3"></i>LangChain</div>
+          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i
+              class="bi bi-google fs-3"></i>TensorFlow</div>
+          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i
+              class="bi bi-braces fs-3"></i>PyTorch</div>
+          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i
+              class="bi bi-cloud fs-3"></i>AWS</div>
+          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i
+              class="bi bi-database fs-3"></i>Pinecone</div>
+          <div class="px-4 py-2 border border-secondary rounded-3 d-flex align-items-center tech-tag"><i
+              class="bi bi-terminal fs-3"></i>LangChain</div>
         </div>
       </div>
     </section>
   </main>
 
-    <!-- Footer -->
+  <!-- Footer -->
   <footer class="mega-footer mt-auto">
     <div class="container">
       <div class="row g-4 mb-5">
@@ -287,15 +312,22 @@
             <i class="bi bi-robot fs-3 text-primary"></i>
             <span class="fs-4">ChatAI<span class="text-gradient">Studio</span></span>
           </a>
-          <p class="text-muted pe-lg-4 mb-4">Building the future of conversational experiences for innovative startups and global enterprises.</p>
+          <p class="text-muted pe-lg-4 mb-4">Building the future of conversational experiences for innovative startups
+            and global enterprises.</p>
           <div class="d-flex gap-3">
-            <a href="#" class="btn btn-outline-glass rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;" title="Twitter">
+            <a href="#"
+              class="btn btn-outline-glass rounded-circle p-2 d-flex align-items-center justify-content-center"
+              style="width: 42px; height: 42px;" title="Twitter">
               <i class="bi bi-twitter-x"></i>
             </a>
-            <a href="#" class="btn btn-outline-glass rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;" title="LinkedIn">
+            <a href="#"
+              class="btn btn-outline-glass rounded-circle p-2 d-flex align-items-center justify-content-center"
+              style="width: 42px; height: 42px;" title="LinkedIn">
               <i class="bi bi-linkedin"></i>
             </a>
-            <a href="#" class="btn btn-outline-glass rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;" title="GitHub">
+            <a href="#"
+              class="btn btn-outline-glass rounded-circle p-2 d-flex align-items-center justify-content-center"
+              style="width: 42px; height: 42px;" title="GitHub">
               <i class="bi bi-github"></i>
             </a>
           </div>
@@ -318,12 +350,14 @@
           <h5 class="footer-heading">Newsletter</h5>
           <p class="text-muted mb-3">Subscribe to get the latest AI updates and product news.</p>
           <form class="d-flex gap-2">
-            <input type="email" class="form-control bg-transparent border-secondary border-opacity-50 text-white" placeholder="Email address" required>
+            <input type="email" class="form-control bg-transparent border-secondary border-opacity-50 text-white"
+              placeholder="Email address" required>
             <button class="btn btn-primary-gradient px-4" type="submit">Subscribe</button>
           </form>
         </div>
       </div>
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4 border-top border-secondary border-opacity-25">
+      <div
+        class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4 border-top border-secondary border-opacity-25">
         <p class="text-muted mb-3 mb-md-0">&copy; 2026 ChatAI Studio. All rights reserved.</p>
         <div class="d-flex gap-4">
           <a href="#" class="text-muted text-decoration-none">Privacy Policy</a>
@@ -333,7 +367,8 @@
     </div>
   </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>

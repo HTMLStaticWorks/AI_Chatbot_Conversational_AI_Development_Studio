@@ -105,18 +105,29 @@
   </div>
 
   <main>
-    <section class="hero-section py-5 text-center position-relative">
-      <div class="hero-bg hero-bg--blog"
-        style="background-image: radial-gradient(circle at top right, rgba(249,115,22,0.30), transparent 50%), radial-gradient(circle at bottom left, rgba(244,63,94,0.25), transparent 50%), url('assets/images/hero_blog.png'); background-size: cover; background-position: center; opacity: 0.8;">
+    <section class="hero-section text-center position-relative" id="blog-hero"
+      style="min-height: 60vh; padding: 160px 0 100px;">
+      <div class="hero-bg hero-bg--blog">
       </div>
-      <div class="container position-relative z-1" style="padding: 60px 0;">
+      <div class="container position-relative z-1">
         <h1>Latest News & <span class="text-gradient">Insights</span></h1>
-        <p class="lead">Stay up to date with the latest in conversational AI and automation.</p>
+        <p class="lead mb-4">Stay up to date with the latest in conversational AI and automation.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-5">
+          <span
+            class="badge bg-secondary bg-opacity-10 border border-secondary border-opacity-25 rounded-pill px-3 py-2 text-primary fw-medium"><i
+              class="bi bi-calendar-check me-1"></i> Weekly Publications</span>
+          <span
+            class="badge bg-secondary bg-opacity-10 border border-secondary border-opacity-25 rounded-pill px-3 py-2 text-primary fw-medium"><i
+              class="bi bi-clock me-1"></i> 5 Min Avg. Read</span>
+          <span
+            class="badge bg-secondary bg-opacity-10 border border-secondary border-opacity-25 rounded-pill px-3 py-2 text-primary fw-medium"><i
+              class="bi bi-people me-1"></i> 12k+ Subscribers</span>
+        </div>
       </div>
     </section>
 
     <!-- Categories Section -->
-    <section class="py-4 border-bottom border-secondary border-opacity-25 bg-darker">
+    <section class="py-4 border-bottom border-secondary border-opacity-25 bg-darker" id="categories">
       <div class="container text-center">
         <div class="d-flex flex-wrap justify-content-center gap-2">
           <a href="#" class="btn btn-primary rounded-pill px-4">All</a>
@@ -136,7 +147,8 @@
           <div class="row g-0">
             <div class="col-md-6">
               <div style="height: 100%; min-height: 300px;">
-                <img src="assets/images/blog_featured.jpg" alt="Autonomous Customer Support" class="w-100 h-100 object-fit-cover">
+                <img src="assets/images/blog_featured.jpg" alt="Autonomous Customer Support"
+                  class="w-100 h-100 object-fit-cover">
               </div>
             </div>
             <div class="col-md-6 d-flex align-items-center">
@@ -147,7 +159,8 @@
                   service from reactive to proactive, and what it means for your business.</p>
                 <div class="d-flex align-items-center gap-3">
                   <div style="width: 40px; height: 40px; border-radius: 50%; overflow: hidden;"
-                    class="d-flex align-items-center justify-content-center"><img src="assets/images/sarah.png" alt="Sarah Jenkins" class="w-100 h-100 object-fit-cover">
+                    class="d-flex align-items-center justify-content-center"><img src="assets/images/sarah.png"
+                      alt="Sarah Jenkins" class="w-100 h-100 object-fit-cover">
                   </div>
                   <div>
                     <h6 class="mb-0">Sarah Jenkins</h6>
@@ -170,7 +183,8 @@
           <div class="col-lg-4 col-md-6">
             <div class="card glass-panel h-100 border-0 overflow-hidden d-flex flex-column">
               <div style="height: 200px;">
-                <img src="assets/images/blog_engineering.jpg" alt="Optimizing RAG Pipelines" class="w-100 h-100 object-fit-cover">
+                <img src="assets/images/blog_engineering.jpg" alt="Optimizing RAG Pipelines"
+                  class="w-100 h-100 object-fit-cover">
               </div>
               <div class="card-body p-4 d-flex flex-column flex-grow-1">
                 <span class="badge bg-secondary mb-2 align-self-start">Engineering</span>
@@ -185,7 +199,8 @@
           <div class="col-lg-4 col-md-6">
             <div class="card glass-panel h-100 border-0 overflow-hidden d-flex flex-column">
               <div style="height: 200px;">
-                <img src="assets/images/blog_case_study.jpg" alt="Enterprise Client Success" class="w-100 h-100 object-fit-cover">
+                <img src="assets/images/blog_case_study.jpg" alt="Enterprise Client Success"
+                  class="w-100 h-100 object-fit-cover">
               </div>
               <div class="card-body p-4 d-flex flex-column flex-grow-1">
                 <span class="badge bg-info mb-2 text-dark align-self-start">Case Studies</span>
@@ -200,7 +215,8 @@
           <div class="col-lg-4 col-md-6">
             <div class="card glass-panel h-100 border-0 overflow-hidden d-flex flex-column">
               <div style="height: 200px;">
-                <img src="assets/images/blog_product_updates.jpg" alt="Visual Flow Builder" class="w-100 h-100 object-fit-cover">
+                <img src="assets/images/blog_product_updates.jpg" alt="Visual Flow Builder"
+                  class="w-100 h-100 object-fit-cover">
               </div>
               <div class="card-body p-4 d-flex flex-column flex-grow-1">
                 <span class="badge bg-success mb-2 align-self-start">Product Updates</span>
@@ -271,7 +287,7 @@
           <a href="#" class="footer-link">Documentation</a>
           <a href="#" class="footer-link">API Reference</a>
         </div>
-        <div class="col-lg-4 col-md-4">
+        <div class="col-lg-4 col-md-4" id="newsletter-footer">
           <h5 class="footer-heading">Newsletter</h5>
           <p class="text-muted mb-3">Subscribe to get the latest AI updates and product news.</p>
           <form class="d-flex gap-2">
