@@ -1,17 +1,22 @@
 /* Dark Mode Theme Variables */
+[data-theme="dark"],
 body.dark-mode {
-  --bg-color: #121212;
-  --text-color: #e0e0e0;
-  --text-muted: #a0a0a0;
-  --card-bg: #1e1e1e;
-  --border-color: #333333;
+  --bg-color: #0f172a;
+  --bg-color-alt: #1e293b;
+  --text-color: #f8fafc;
+  --text-muted: #cbd5e1;
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --border-color: rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .navbar-custom,
-body.dark-mode .footer-custom {
+body.dark-mode .footer-custom,
+[data-theme="dark"] .navbar-custom,
+[data-theme="dark"] .footer-custom {
   background-color: var(--card-bg);
 }
 
-body.dark-mode .card-custom:hover {
+body.dark-mode .card-custom:hover,
+[data-theme="dark"] .card-custom:hover {
   box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }

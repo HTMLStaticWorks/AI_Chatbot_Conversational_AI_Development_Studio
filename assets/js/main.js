@@ -1,33 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Theme Toggler
-  const themeToggle = document.getElementById('theme-toggle');
-  const currentTheme = localStorage.getItem('theme');
+  // Theme Synchronization & Icon Updater
+  const themeButtons = Array.from(document.querySelectorAll('.theme-toggle, .sidebar-circle-btn')).filter(btn => {
+    const aria = btn.getAttribute('aria-label') || '';
+    const title = btn.getAttribute('title') || '';
+    const onclick = btn.getAttribute('onclick') || '';
+    return aria.toLowerCase().includes('theme') || title.toLowerCase().includes('theme') || onclick.toLowerCase().includes('theme');
+  });
 
-  if (currentTheme) {
-    document.body.classList.add(currentTheme);
-    updateThemeIcon(themeToggle, currentTheme);
-  }
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      let theme = 'light';
-      if (document.body.classList.contains('dark-mode')) {
-        theme = 'dark-mode';
+  function updateThemeState(theme) {
+    if (theme === 'dark') {
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('light-mode');
+    } else {
+      document.body.classList.add('light-mode');
+      document.body.classList.remove('dark-mode');
+    }
+    
+    // Update icons
+    themeButtons.forEach(btn => {
+      const icon = btn.querySelector('i');
+      if (icon) {
+        if (theme === 'dark') {
+          icon.className = 'bi bi-sun';
+        } else {
+          icon.className = 'bi bi-moon';
+        }
       }
-      localStorage.setItem('theme', theme);
-      updateThemeIcon(themeToggle, theme);
     });
   }
 
-  function updateThemeIcon(btn, theme) {
-    if(!btn) return;
-    if(theme === 'dark-mode') {
-      btn.innerHTML = '<i class="bi bi-sun"></i>';
-    } else {
-      btn.innerHTML = '<i class="bi bi-moon"></i>';
-    }
-  }
+  // Observe theme changes on the <html> element
+  const themeObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === 'data-theme') {
+        const newTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        updateThemeState(newTheme);
+      }
+    });
+  });
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // Initial Sync on load
+  const initialTheme = document.documentElement.getAttribute('data-theme') || localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', initialTheme);
+  updateThemeState(initialTheme);
 
   // RTL Toggler
   const rtlToggle = document.getElementById('rtl-toggle');

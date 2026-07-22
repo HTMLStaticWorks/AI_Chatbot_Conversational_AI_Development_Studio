@@ -29,7 +29,7 @@
   /* Deep Slate - keeps it dark */
   --bg-color-alt: #1e293b;
   --text-color: #f8fafc;
-  --text-muted: #94a3b8;
+  --text-muted: #cbd5e1;
   --card-bg: rgba(30, 41, 59, 0.7);
   --border-color: rgba(255, 255, 255, 0.1);
 
@@ -60,7 +60,7 @@
   --bg-color: #fcf8f8;
   --bg-color-alt: #ffffff;
   --text-color: #1e293b;
-  --text-muted: #475569;
+  --text-muted: #334155;
   --card-bg: rgba(255, 255, 255, 0.9);
   --border-color: rgba(0, 0, 0, 0.15);
   --glass-shadow: 0 8px 32px 0 rgba(135, 38, 31, 0.08);
@@ -273,6 +273,17 @@ span {
   color: var(--text-color);
 }
 
+/* Ensure outline buttons in hero sections always contrast with the dark image backdrop */
+.hero-section .btn-outline-glass {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
+}
+
+.hero-section .btn-outline-glass:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
 /* Header */
 .navbar {
   background: rgba(15, 23, 42, 0.8) !important;
@@ -341,12 +352,11 @@ span {
   align-items: center;
 }
 
-/* Hero text visibility in both modes */
+/* Hero text visibility in both modes - ALWAYS light for dark hero images */
 .hero-section h1,
-.hero-section h2,
-.hero-section p,
-.hero-section .lead {
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 1px 6px rgba(0, 0, 0, 0.5);
+.hero-section h2 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 /* Bold, readable hero paragraphs */
@@ -356,19 +366,8 @@ span {
   font-size: clamp(1rem, 1.8vw, 1.2rem);
   letter-spacing: 0.01em;
   opacity: 1;
-}
-
-[data-theme="light"] .hero-section h1,
-[data-theme="light"] .hero-section h2 {
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.2);
-  color: #1a1a2e;
-}
-
-[data-theme="light"] .hero-section p,
-[data-theme="light"] .hero-section .lead {
-  text-shadow: 0 1px 8px rgba(255, 255, 255, 0.8), 0 1px 3px rgba(0, 0, 0, 0.15);
-  color: #2d2d2d;
-  font-weight: 600;
+  color: #cbd5e1 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 /* Hero background with image overlay */
@@ -389,12 +388,12 @@ span {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0.25) 100%);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.65) 0%, rgba(15, 23, 42, 0.45) 100%);
 }
 
-/* Light mode overlay - lighter tint */
+/* Light mode overlay - keeps background image visible and dark enough for white text */
 [data-theme="light"] .hero-bg::after {
-  background: linear-gradient(135deg, rgba(252, 248, 248, 0.4) 0%, rgba(252, 248, 248, 0.25) 100%);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.4) 100%);
 }
 
 /* Ensure text sits above the overlay */
@@ -643,11 +642,24 @@ span {
   color: inherit !important;
 }
 
+/* Ensure mock chat interface on home page has correct contrast text in both modes */
+.chat-window p {
+  color: var(--text-color) !important;
+}
+
+.chat-window .text-white {
+  color: #ffffff !important;
+}
+
 .chat-bubble.bot {
   background: rgba(255, 255, 255, 0.05);
   align-self: flex-start;
   border-top-left-radius: 2px;
   color: var(--text-color);
+}
+
+[data-theme="light"] .chat-bubble.bot {
+  background: rgba(0, 0, 0, 0.05) !important;
 }
 
 .chat-bubble.user {
